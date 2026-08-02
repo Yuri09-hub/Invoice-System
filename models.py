@@ -1,10 +1,12 @@
 from sqlalchemy import create_engine, Float, Integer, String, Column, Date, Boolean, ForeignKey
 from sqlalchemy.orm import declarative_base
-
+from sqlalchemy.orm import sessionmaker
 
 db = create_engine('sqlite:///data.db')
 Base = declarative_base()
+Session = sessionmaker(bind=db)
 
+session = Session()
 
 class User(Base):
     __tablename__ = 'user'
